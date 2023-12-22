@@ -52,8 +52,6 @@ module GoalsAnswer : sig
     { textDocument : Doc.VersionedTextDocumentIdentifier.t
     ; position : Lang.Point.t
     ; goals : 'pp Coq.Goals.reified_pp option [@default None]
-    ; program : JCoq.Declare.OblState.View.t Names.Id.Map.t option
-          [@default None]
     ; messages : 'pp Message.t list
     ; error : 'pp option [@default None]
     }

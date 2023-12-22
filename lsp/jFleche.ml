@@ -19,7 +19,6 @@
 module Pp = JCoq.Pp
 module Ast = JCoq.Ast
 module Lang = JLang
-module Names = Serlib.Ser_names
 
 module Config = struct
   module Unicode_completion = struct
@@ -83,8 +82,6 @@ module GoalsAnswer = struct
     { textDocument : Doc.VersionedTextDocumentIdentifier.t
     ; position : Lang.Point.t
     ; goals : 'pp JCoq.Goals.reified_pp option [@default None]
-    ; program : JCoq.Declare.OblState.View.t Names.Id.Map.t option
-          [@default None]
     ; messages : 'pp Message.t list
     ; error : 'pp option [@default None]
     }

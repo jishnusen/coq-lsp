@@ -2,8 +2,8 @@
 
 type t = Vernacexpr.vernac_control
 
-let hash x = Serlib.Ser_vernacexpr.hash_vernac_control x
-let compare x y = Serlib.Ser_vernacexpr.compare_vernac_control x y
+let hash x = Hashtbl.hash x.CAst.v
+let compare x y = compare x.CAst.v y.CAst.v
 let to_coq x = x
 let of_coq x = x
 let loc { CAst.loc; _ } = loc

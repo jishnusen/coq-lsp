@@ -44,11 +44,10 @@ let goals ~pp_format ~doc ~point =
   in
   let goals_mode = get_goals_mode () in
   let goals = Info.LC.goals ~doc ~point goals_mode in
-  let program = Info.LC.program ~doc ~point goals_mode in
   let node = Info.LC.node ~doc ~point Exact in
   let messages = mk_messages node in
   let error = Option.bind node mk_error in
   let pp = pp ~pp_format in
   Lsp.JFleche.GoalsAnswer.(
-    to_yojson pp { textDocument; position; goals; program; messages; error })
+    to_yojson pp { textDocument; position; goals; messages; error })
   |> Result.ok
